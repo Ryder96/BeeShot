@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://path/EnemyFollower2D.gd" type="Script" id=1]
+
+[node name="EnemyFollower2D" type="PathFollow2D"]
+position = Vector2( 2, -1 )
+rotation = 1.5842
+rotate = false
+loop = false
+script = ExtResource( 1 )

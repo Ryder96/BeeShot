@@ -1,0 +1,26 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://path/Path2D.gd" type="Script" id=1]
+[ext_resource path="res://EnemyFollower2D.tscn" type="PackedScene" id=2]
+
+[sub_resource type="Curve2D" id=1]
+_data = {
+"points": PoolVector2Array( 0, 0, 0, 0, 10, -53, -21.8956, -70.6309, 21.8956, 70.6309, 35, 174, -94.9985, -0.706309, 0, 0, 186, 249, 0, 0, 0, 0, 344, 247 )
+}
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Path2D" type="Path2D" parent="."]
+position = Vector2( 74, 130 )
+scale = Vector2( 0.491195, 0.8341 )
+curve = SubResource( 1 )
+script = ExtResource( 1 )
+numberOf = 10
+
+[node name="EnemyFollower2D" parent="Path2D" instance=ExtResource( 2 )]
+position = Vector2( 10, -53 )
+rotation = 1.54642
+
+[node name="SpawnTimer" type="Timer" parent="Path2D"]
+
+[connection signal="timeout" from="Path2D/SpawnTimer" to="Path2D" method="_on_SpawnTimer_timeout"]
